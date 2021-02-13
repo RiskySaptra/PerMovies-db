@@ -1,10 +1,11 @@
-import React from "react";
-import { IconButton, Typography } from "@material-ui/core";
+import React, { useState } from "react";
+import { IconButton, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Carousel from "react-elastic-carousel";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import GradeIcon from "@material-ui/icons/Grade";
+import Collapse from "@material-ui/core/Collapse";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,22 +29,38 @@ const useStyles = makeStyles((theme) => ({
 
 const Item = ({ item }) => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
 
   const getDetails = () => {
-    console.log("beraks", item.id);
+    console.log("beraks", item);
     return "beraks";
   };
 
   return (
     <>
-      <div className={"postercontainer"} onClick={getDetails}>
+      <div
+        className={"postercontainer"}
+        onClick={getDetails}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+      >
         <img
           src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
           alt={item.title}
           height={350}
         />
+        <Collapse in={open}>
+          <Paper
+            className="overview"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.9)", color: "white" }}
+            square
+          >
+            <p>Overview</p>
+            <Typography className={classes.title}>{item.overview}</Typography>
+          </Paper>
+        </Collapse>
 
-        <div class="top-right">
+        <div className="top-right">
           <div style={{ display: "flex" }}>
             <GradeIcon style={{ color: "#FFD700" }} />
             <Typography className={classes.title}>
@@ -66,7 +83,7 @@ const Arrow = ({ type, onClick, isEdge }) => {
   );
 };
 
-const Swiper = ({ data, onClick }) => {
+const Swiper = ({ data }) => {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -87,7 +104,7 @@ const Swiper = ({ data, onClick }) => {
         breakPoints={breakPoints}
       >
         {data.map((itm) => (
-          <Item item={itm} />
+          <Item key={itm.id} item={itm} />
         ))}
       </Carousel>
     </div>

@@ -25,6 +25,7 @@ const ChipsArray = ({ data }) => {
       {data.map((data) => {
         return (
           <Chip
+            key={data}
             color="primary"
             label={GENRES[data]}
             className={classes.chip}

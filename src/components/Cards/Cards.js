@@ -5,9 +5,8 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Rating from "@material-ui/lab/Rating";
 import Chips from "../Chips/Chips";
-
-import GradeIcon from "@material-ui/icons/Grade";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,8 +44,18 @@ const Cards = ({ data }) => {
       elevation={0}
     >
       <CardContent>
+        <Typography component="legend" style={{ marginBottom: 5 }}>
+          Rating{" "}
+        </Typography>
         <div style={{ display: "flex" }}>
-          <GradeIcon style={{ color: "#FFD700" }} />
+          <Rating
+            name="read-only"
+            value={parseFloat(data.vote_average)}
+            max={10}
+            precision={0.5}
+            readOnly
+            style={{ marginBottom: 10 }}
+          />
           <Typography className={classes.rating}>
             {data.vote_average}
           </Typography>
