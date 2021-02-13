@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 12,
     color: "white",
     [theme.breakpoints.up("md")]: {
-      padding: 150,
+      padding: 120,
     },
   },
   rating: {
@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   pos: {
+    fontSize: 20,
     maxWidth: 700,
     marginBottom: 12,
   },
@@ -44,9 +45,6 @@ const Cards = ({ data }) => {
       elevation={0}
     >
       <CardContent>
-        {/* 
-        <Chips item={data[page].genre_ids} />
-        <p>{data[page].release_date}</p> */}
         <div style={{ display: "flex" }}>
           <GradeIcon style={{ color: "#FFD700" }} />
           <Typography className={classes.rating}>
@@ -61,9 +59,9 @@ const Cards = ({ data }) => {
         <Typography className={classes.pos} variant="body2" component="p">
           {data.overview}
         </Typography>
-        <Typography className={classes.pos} variant="h6" component="h1">
-          Release : {data.release_date}
-        </Typography>
+        {/* <Typography className={classes.pos} variant="h6" component="h1">
+          Release Date : {data.release_date}
+        </Typography> */}
       </CardContent>
       <CardActions>
         <Button size="small" style={{ color: "white" }}>

@@ -94,7 +94,7 @@ const Home = () => {
             <Typography
               className={classes.category}
               variant="h6"
-              component="h1"
+              component="h3"
             >
               {itm.label}
             </Typography>
