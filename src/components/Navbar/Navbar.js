@@ -1,11 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
-import { AppBar, Toolbar, InputBase } from "@material-ui/core";
+import React, { useState } from "react";
+import { AppBar, Toolbar, InputBase, IconButton } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import { useHistory } from "react-router-dom";
 import useStyles from "./Style";
 
 const Navbar = () => {
   const classes = useStyles();
+  const history = useHistory();
+  const [search, setSearch] = useState(null);
+  const goToSearch = () => history.push(`/search/${search}`);
+
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const keyDown = (event) => {
+    if ((event === "Enter" && search.length > 0) || search.length > 0) {
+      goToSearch();
+    }
+  };
 
   return (
     <AppBar
@@ -18,6 +32,8 @@ const Navbar = () => {
         <div className={classes.title}>
           <div style={{ display: "flex" }}>
             <img
+              onClick={() => history.push(`/`)}
+              style={{ cursor: "pointer" }}
               className={"posterimg"}
               src="/logo.png"
               alt="logo"
@@ -26,17 +42,22 @@ const Navbar = () => {
           </div>
         </div>
         <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
           <InputBase
             placeholder="Search…"
             classes={{
               root: classes.inputRoot,
               input: classes.inputInput,
             }}
-            inputProps={{ "aria-label": "search" }}
+            onChange={handleChange}
+            onKeyDown={(e) => keyDown(e.key)}
           />
+          <IconButton
+            type="submit"
+            className={classes.iconButton}
+            onClick={() => keyDown()}
+          >
+            <SearchIcon />
+          </IconButton>
         </div>
       </Toolbar>
     </AppBar>

@@ -20,11 +20,19 @@ const VideoPlayer = ({ open, onClose, data }) => {
   }, [data]);
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth={false}>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth={false}
+      PaperProps={{
+        square: true,
+        style: { backgroundColor: "rgba(60, 60, 60, 0.5)" },
+      }}
+    >
       <ReactPlayer
         height={"550px"}
         width={"950px"}
-        style={{ padding: 2.5 }}
+        style={{ margin: 5 }}
         url={url}
         controls
       />
