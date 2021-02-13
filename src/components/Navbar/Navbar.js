@@ -8,7 +8,12 @@ const Navbar = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" elevation={0} color={"transparent"}>
+    <AppBar
+      position="absolute"
+      elevation={0}
+      color={"transparent"}
+      style={{ color: "white" }}
+    >
       <Toolbar>
         <div className={classes.title}>
           <div style={{ display: "flex" }}>

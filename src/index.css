@@ -29,3 +29,7 @@ code {
   position: absolute;
   bottom: 0px;
 }
+
+.MuiDialog-paper {
+  background-color: black;
+}

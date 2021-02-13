@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 20,
   },
   chip: {
-    margin: theme.spacing(0.5),
+    marginRight: theme.spacing(0.5),
+    marginTop: theme.spacing(0.5),
   },
 }));
 
@@ -25,13 +26,12 @@ const ChipsArray = ({ data }) => {
       {data.map((data) => {
         return (
           <Chip
+            size="small"
             key={data}
             color="primary"
             label={GENRES[data]}
             className={classes.chip}
             style={{ backgroundColor: "rgba(60, 60, 60, 0.7)" }}
-
-            // variant="outlined"
           />
         );
       })}

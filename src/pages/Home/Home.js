@@ -3,7 +3,6 @@ import { Typography } from "@material-ui/core";
 import { Context } from "../../context/StoreProvider";
 import { getMovieCollection } from "../../handler/handler";
 
-import Navbar from "../../components/Navbar/Navbar";
 import Cards from "../../components/Cards/Cards";
 import Swiper from "../../components/Swiper/Swiper";
 import Footer from "../../components/Footer/Footer";
@@ -24,6 +23,7 @@ const collection = [
 
 const Home = () => {
   const [state, dispatch] = useContext(Context);
+
   const props = !state.loading && {
     link:
       state.movieCollection[`${collection[random.collection].key}`].results[
@@ -48,7 +48,6 @@ const Home = () => {
   return (
     <div>
       <div className={classes.root}>
-        <Navbar />
         <Cards
           data={
             state.movieCollection[`${collection[random.collection].key}`]

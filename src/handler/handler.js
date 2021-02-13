@@ -13,4 +13,9 @@ const getMovieCollection = async (keyword) => {
   });
 };
 
-export { getMovieCollection };
+const getVideo = async (videoId) => {
+  const res = await GET(`/movie/${videoId}/videos`);
+  return res;
+};
+
+export { getMovieCollection, getVideo };
