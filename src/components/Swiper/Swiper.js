@@ -49,25 +49,38 @@ const Item = ({ item }) => {
           alt={item.title}
           height={350}
         />
-        <Collapse in={open}>
+
+        <Collapse in={open} className="overview">
           <Paper
-            className="overview"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.9)", color: "white" }}
+            style={{
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              color: "white",
+              height: 350,
+              paddingTop: 5,
+            }}
             square
           >
-            <p>Overview</p>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <Typography className={classes.title}>Overview :</Typography>
+              <div style={{ display: "flex" }}>
+                <GradeIcon style={{ color: "#FFD700" }} />
+                <Typography className={classes.title}>
+                  {item.vote_average}
+                </Typography>
+              </div>
+            </div>
             <Typography className={classes.title}>{item.overview}</Typography>
           </Paper>
         </Collapse>
 
-        <div className="top-right">
+        {/* <div className="top-right">
           <div style={{ display: "flex" }}>
             <GradeIcon style={{ color: "#FFD700" }} />
             <Typography className={classes.title}>
               {item.vote_average}
             </Typography>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
