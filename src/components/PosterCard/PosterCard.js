@@ -22,7 +22,6 @@ const PosterCard = ({ item }) => {
     <>
       <div
         className={"postercontainer"}
-        onClick={getDetails}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
       >
@@ -48,6 +47,7 @@ const PosterCard = ({ item }) => {
               width: 233.3,
             }}
             square
+            onClick={getDetails}
           >
             <Typography className={classes.title}>{item.title}</Typography>
 
