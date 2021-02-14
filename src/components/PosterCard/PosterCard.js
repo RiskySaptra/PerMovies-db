@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Collapse from "@material-ui/core/Collapse";
-import { Paper, Typography } from "@material-ui/core";
+import { Paper, Typography, Box } from "@material-ui/core";
 import GradeIcon from "@material-ui/icons/Grade";
 import useStyles from "./Style";
 import { useHistory } from "react-router-dom";
@@ -20,7 +20,7 @@ const PosterCard = ({ item }) => {
 
   return (
     <>
-      <div
+      <Box
         className={"postercontainer"}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
@@ -66,10 +66,17 @@ const PosterCard = ({ item }) => {
                 </Typography>
               </div>
             </div>
-            <Typography className={classes.title}>{item.overview}</Typography>
+            <Typography
+              className={classes.title}
+              displayInline
+              align={"left"}
+              style={{ textOverflow: "ellipsis" }}
+            >
+              {item.overview}
+            </Typography>
           </Paper>
         </Collapse>
-      </div>
+      </Box>
     </>
   );
 };

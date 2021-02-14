@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   search: {
+    marginTop: 17,
+
     display: "flex",
     justifyContent: "space-between",
     position: "relative",
@@ -25,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
+      marginTop: 17,
+
       marginLeft: theme.spacing(1),
       width: "auto",
     },
@@ -49,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       width: "12ch",
       "&:focus": {
-        width: "40ch",
+        width: "20ch",
       },
     },
   },

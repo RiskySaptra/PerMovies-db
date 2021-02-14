@@ -30,6 +30,8 @@ code {
   bottom: 0px;
 }
 
-.MuiDialog-paper {
-  background-color: black;
+.MuiCollapse-container.overview.MuiCollapse-entered {
+  height: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
