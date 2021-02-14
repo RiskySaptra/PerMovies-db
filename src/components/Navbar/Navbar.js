@@ -9,14 +9,18 @@ const Navbar = () => {
   const classes = useStyles();
   const history = useHistory();
   const [search, setSearch] = useState(null);
-  const goToSearch = () => history.push(`/search/${search}`);
+  const goToSearch = () => {
+    if (search.length > 0) {
+      history.push(`/search/${search}`);
+    }
+  };
 
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
 
   const keyDown = (event) => {
-    if ((event === "Enter" && search.length > 0) || search.length > 0) {
+    if (event === "Enter") {
       goToSearch();
     }
   };
@@ -54,7 +58,7 @@ const Navbar = () => {
           <IconButton
             type="submit"
             className={classes.iconButton}
-            onClick={() => keyDown()}
+            onClick={() => goToSearch()}
           >
             <SearchIcon />
           </IconButton>
