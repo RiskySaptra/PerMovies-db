@@ -1,8 +1,10 @@
 import axios from "axios";
 
-const GET = async (url) => {
+const GET = async (url, query) => {
   const res = await axios.get(
-    `${process.env.REACT_APP_BASE_URL}${url}${process.env.REACT_APP_API_KEY}`
+    `${process.env.REACT_APP_BASE_URL}${url}${process.env.REACT_APP_API_KEY}${
+      query || ""
+    }`
   );
   return res;
 };

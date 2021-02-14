@@ -3,14 +3,19 @@ import Collapse from "@material-ui/core/Collapse";
 import { Paper, Typography } from "@material-ui/core";
 import GradeIcon from "@material-ui/icons/Grade";
 import useStyles from "./Style";
+import { useHistory } from "react-router-dom";
 
 const PosterCard = ({ item }) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const history = useHistory();
+
+  const goToDetails = () => history.push(`/movie/${item.id}`);
 
   const getDetails = () => {
-    console.log("beraks", item);
-    return "beraks";
+    if (open) {
+      goToDetails();
+    }
   };
 
   return (
@@ -22,9 +27,14 @@ const PosterCard = ({ item }) => {
         onMouseLeave={() => setOpen(false)}
       >
         <img
-          src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+          src={
+            item.poster_path !== null
+              ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+              : "/no-image.jpg"
+          }
           alt={item.title}
           height={350}
+          width={233.3}
         />
 
         <Collapse in={open} className="overview">
@@ -33,11 +43,21 @@ const PosterCard = ({ item }) => {
               backgroundColor: "rgba(0, 0, 0, 0.7)",
               color: "white",
               height: 350,
+              cursor: "pointer",
               paddingTop: 5,
+              width: 233.3,
             }}
             square
           >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Typography className={classes.title}>{item.title}</Typography>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                overflow: "none",
+              }}
+            >
               <Typography className={classes.title}>Overview :</Typography>
               <div style={{ display: "flex", paddingRight: 7 }}>
                 <GradeIcon style={{ color: "#FFD700" }} />

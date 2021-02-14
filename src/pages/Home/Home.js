@@ -14,6 +14,7 @@ const random = {
   pages: Math.floor(Math.random() * 20),
 };
 
+// home config (make sub menu after)
 const collection = [
   { label: "Popular", key: "popular" },
   { label: "Upcoming", key: "upcoming" },

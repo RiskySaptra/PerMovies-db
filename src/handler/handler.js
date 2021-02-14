@@ -18,4 +18,14 @@ const getVideo = async (videoId) => {
   return res;
 };
 
-export { getMovieCollection, getVideo };
+const getMovieDetail = async (videoId) => {
+  const res = await GET(`/movie/${videoId}`);
+  return res;
+};
+
+const searchMovies = async (query) => {
+  const res = await GET(`/search/movie`, `&query=${query}`);
+  return res;
+};
+
+export { getMovieCollection, getVideo, searchMovies, getMovieDetail };

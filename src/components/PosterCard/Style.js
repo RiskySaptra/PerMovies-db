@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 3,
     fontSize: 14,
     [theme.breakpoints.up("sm")]: {
-      padding: 5,
+      padding: 2,
     },
   },
   pos: {
