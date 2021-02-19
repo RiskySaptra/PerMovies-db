@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 60,
     color: "white",
     [theme.breakpoints.up("md")]: {
-      paddingTop: 210,
+      paddingTop: 140,
     },
   },
 }));

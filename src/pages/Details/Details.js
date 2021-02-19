@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useStyles from "./Style";
 
+import Tabs from "../../components/Tabs/Tabs";
+
 import { getMovieDetail } from "../../handler/handler";
 
 const Details = () => {
@@ -26,7 +28,7 @@ const Details = () => {
 
   return (
     <div className={classes.root}>
-      <h1 style={{ color: "white" }}>Details {details.data.title}</h1>
+      <Tabs overview={details} />
     </div>
   );
 };
