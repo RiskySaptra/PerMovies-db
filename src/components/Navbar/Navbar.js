@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { AppBar, Toolbar, InputBase, IconButton } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import SettingsIcon from "@material-ui/icons/Settings";
 import { useHistory } from "react-router-dom";
 import useStyles from "./Style";
 
@@ -13,6 +14,10 @@ const Navbar = () => {
     if (search) {
       history.push(`/search/${search}`);
     }
+  };
+
+  const goToSettings = () => {
+    history.push(`/settings`);
   };
 
   const handleChange = (event) => {
@@ -61,6 +66,15 @@ const Navbar = () => {
             onClick={() => goToSearch()}
           >
             <SearchIcon />
+          </IconButton>
+        </div>
+        <div className={classes.cofigs}>
+          <IconButton
+            type="submit"
+            className={classes.iconButton}
+            onClick={() => goToSettings()}
+          >
+            <SettingsIcon />
           </IconButton>
         </div>
       </Toolbar>

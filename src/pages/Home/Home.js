@@ -9,27 +9,26 @@ import Footer from "../../components/Footer/Footer";
 
 import useStyles from "./Style";
 
-const random = {
-  collection: Math.floor(Math.random() * 4),
-  pages: Math.floor(Math.random() * 20),
-};
-
 // home config (make sub menu after)
 const collection = [
   { label: "Popular", key: "popular" },
   { label: "Upcoming", key: "upcoming" },
-  { label: "Now Playing", key: "now_playing" },
-  { label: "Top Rated", key: "top_rated" },
+  // { label: "Now Playing", key: "now_playing" },
+  // { label: "Top Rated", key: "top_rated" },
 ];
+
+const random = {
+  collection: Math.floor(Math.random() * collection.length),
+  pages: Math.floor(Math.random() * 20),
+};
 
 const Home = () => {
   const [state, dispatch] = useContext(Context);
 
   const props = !state.loading && {
-    link:
-      state.movieCollection[`${collection[random.collection].key}`].results[
-        random.pages
-      ].backdrop_path,
+    link: state.movieCollection[`${collection[random.collection].key}`].results[
+      random.pages
+    ].backdrop_path,
   };
   const classes = useStyles(props);
   useEffect(() => {

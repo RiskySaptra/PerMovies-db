@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Chip from "@material-ui/core/Chip";
-import GENRES from "../../constants";
+import { GENRES } from "../../constants";
 
 const useStyles = makeStyles((theme) => ({
   root: {

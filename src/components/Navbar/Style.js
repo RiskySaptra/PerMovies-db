@@ -33,6 +33,12 @@ const useStyles = makeStyles((theme) => ({
       width: "auto",
     },
   },
+  cofigs: {
+    marginTop: 17,
+    display: "flex",
+    position: "relative",
+    marginLeft: 20,
+  },
   searchIcon: {
     padding: theme.spacing(0, 2),
     height: "100%",
