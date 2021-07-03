@@ -10,7 +10,7 @@ const Navbar = () => {
   const history = useHistory();
   const [search, setSearch] = useState(null);
   const goToSearch = () => {
-    if (search.length > 0) {
+    if (search) {
       history.push(`/search/${search}`);
     }
   };

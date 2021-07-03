@@ -22,7 +22,7 @@ const Details = () => {
   }, [id]);
 
   // loading
-  if (details === null) return <></>;
+  if (!details) return <>Loading...</>;
 
   console.log(details);
 

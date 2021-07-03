@@ -13,19 +13,11 @@ const getMovieCollection = async (keyword) => {
   });
 };
 
-const getVideo = async (videoId) => {
-  const res = await GET(`/movie/${videoId}/videos`);
-  return res;
-};
+// tidy shit
+const getVideo = async (videoId) => GET(`/movie/${videoId}/videos`);
 
-const getMovieDetail = async (videoId) => {
-  const res = await GET(`/movie/${videoId}`);
-  return res;
-};
+const getMovieDetail = (videoId) => GET(`/movie/${videoId}`);
 
-const searchMovies = async (query) => {
-  const res = await GET(`/search/movie`, `&query=${query}`);
-  return res;
-};
+const searchMovies = async (query) => GET(`/search/movie`, `&query=${query}`);
 
 export { getMovieCollection, getVideo, searchMovies, getMovieDetail };

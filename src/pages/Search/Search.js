@@ -20,7 +20,7 @@ const Search = () => {
     getRes(id);
   }, [id]);
 
-  if (results === null) return <></>;
+  if (!results) return <></>;
 
   console.log(results);
 
